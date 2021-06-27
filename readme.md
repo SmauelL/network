@@ -23,10 +23,6 @@
 
 - decode: 读取固定大小，一次没有读到足够大小内容，就继续读直到累加到内容长度等于固定大小为一包
 
-- 图示
-
-![fixLength](./img/fixLength.png)
-
 ### delimiter based
 
 >>>变长型包，每个包使用特殊符号做为结束符
@@ -46,7 +42,6 @@
 
     1. `_$`为包分隔符
 
-![delimiterBased](./img/delimiterBased.png)
 
 ### length field based frame decoder
 
@@ -72,13 +67,8 @@
     1. `0xCE`为包标示符,长度固定为1Byte
     2. `0x000C`为包体长度,长度固定为2Byte
 
-![lengthFieldBasedFrame](./img/lengthFieldBasedFrame.png)
 
 ## goim协议的解码器说明
-
-### goim协议图示
-
-![goim](./img/GoIM.png)
 
 >>> goim协议根据[goim协议代码](https://github.com/Terry-Mao/goim/blob/e742c99ad7/api/protocol/protocol.go)得到
 
@@ -99,16 +89,3 @@
 go build
 network ":8686"
 ```
-
-### 测试
-
->>>使用goim的benchmark/client进行验证
-
-```sh
-go build benchmarks/client
-client 1 1 ":8686"
-```
-
->>>下图为测试验证截图
-
-![goim协议解码](./img/protocol.png)
